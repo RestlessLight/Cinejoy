@@ -1,0 +1,21 @@
+com.example.cinejoy.app-jetified-play-services-base-18.1.0-0 C:\Users\peter\.gradle\caches\transforms-3\028a675d0bc5463fd0b16375a1e80ebd\transformed\jetified-play-services-base-18.1.0\res
+com.example.cinejoy.app-jetified-annotation-experimental-1.1.0-1 C:\Users\peter\.gradle\caches\transforms-3\09db32a73384ac2dccccf916d7dc0262\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.cinejoy.app-core-1.6.0-2 C:\Users\peter\.gradle\caches\transforms-3\168e459aae59caaab0d2c703cf9d67ab\transformed\core-1.6.0\res
+com.example.cinejoy.app-jetified-window-1.0.0-beta04-3 C:\Users\peter\.gradle\caches\transforms-3\29fe38a5fd6c3bf46cd8e59c2b63489e\transformed\jetified-window-1.0.0-beta04\res
+com.example.cinejoy.app-jetified-firebase-common-20.4.3-4 C:\Users\peter\.gradle\caches\transforms-3\4fa7c4fd6f6140748a1d9890cd06c338\transformed\jetified-firebase-common-20.4.3\res
+com.example.cinejoy.app-jetified-window-java-1.0.0-beta04-5 C:\Users\peter\.gradle\caches\transforms-3\978180320ed1d29d66a82edc9d24751e\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.cinejoy.app-browser-1.4.0-6 C:\Users\peter\.gradle\caches\transforms-3\e22b4f4bf24b15e7a89a8de5f5000a73\transformed\browser-1.4.0\res
+com.example.cinejoy.app-jetified-play-services-basement-18.3.0-7 C:\Users\peter\.gradle\caches\transforms-3\f4c9092ebd95742cbb3b74097eb7651b\transformed\jetified-play-services-basement-18.3.0\res
+com.example.cinejoy.app-debug-8 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\android\app\src\debug\res
+com.example.cinejoy.app-main-9 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\android\app\src\main\res
+com.example.cinejoy.app-pngs-10 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\app\generated\res\pngs\debug
+com.example.cinejoy.app-resValues-11 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\app\generated\res\resValues\debug
+com.example.cinejoy.app-rs-12 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\app\generated\res\rs\debug
+com.example.cinejoy.app-mergeDebugResources-13 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.cinejoy.app-mergeDebugResources-14 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.cinejoy.app-merged_res-15 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\app\intermediates\merged_res\debug
+com.example.cinejoy.app-packaged_res-16 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\cloud_firestore\intermediates\packaged_res\debug
+com.example.cinejoy.app-packaged_res-17 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\firebase_auth\intermediates\packaged_res\debug
+com.example.cinejoy.app-packaged_res-18 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\firebase_core\intermediates\packaged_res\debug
+com.example.cinejoy.app-packaged_res-19 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\firebase_storage\intermediates\packaged_res\debug
+com.example.cinejoy.app-packaged_res-20 C:\Users\peter\Desktop\code\flutter\flutter apps\cinejoy\build\path_provider_android\intermediates\packaged_res\debug

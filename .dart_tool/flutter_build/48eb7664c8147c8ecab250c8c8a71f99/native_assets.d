@@ -1,0 +1,1 @@
+ C:\\Users\\peter\\Desktop\\code\\flutter\\flutter\ apps\\cinejoy\\.dart_tool\\flutter_build\\48eb7664c8147c8ecab250c8c8a71f99\\native_assets.yaml: 
