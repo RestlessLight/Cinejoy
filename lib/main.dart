@@ -48,7 +48,7 @@ class App extends StatelessWidget {
         ),
         searchViewTheme: const SearchViewThemeData(
 
-          backgroundColor: Color.fromARGB(255, 159, 8, 128),
+          backgroundColor: Color.fromARGB(255, 159, 8, 129),
           dividerColor: Colors.white,
           
         ),
