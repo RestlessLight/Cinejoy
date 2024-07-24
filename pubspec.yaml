@@ -78,6 +78,8 @@ flutter:
       - assets/images/apple.svg
       - assets/images/Chip_icon.svg
       - assets/images/paypass_icon.svg
+      - assets/images/logos_apple-pay.svg
+      - assets/images/logos_google-pay.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

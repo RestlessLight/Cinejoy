@@ -4464,7 +4464,7 @@
             "outputFile": "com.example.cinejoy.app-merged_res-15:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\peter\\Desktop\\code\\flutter\\flutter apps\\cinejoy\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\peter\\Desktop\\code\\flutter\\flutter_apps\\cinejoy\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -5760,7 +5760,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\peter\\Desktop\\code\\flutter\\flutter apps\\cinejoy\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\peter\\Desktop\\code\\flutter\\flutter_apps\\cinejoy\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,15",
                         "startColumns": "4,4",

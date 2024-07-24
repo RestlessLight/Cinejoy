@@ -1,6 +1,7 @@
 import 'package:cinejoy/textFormatter/textFormatter.dart';
 import 'package:cinejoy/theme/textStyle.dart';
 import 'package:cinejoy/widgets/credit_card.dart';
+import 'package:cinejoy/widgets/payWithButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -300,6 +301,14 @@ class _CreditCardPageState extends State<CreditCardPage> {
                             ),
                           ],
                         ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const PayWithButton(imgPath: 'assets/images/logos_google-pay.svg'),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const PayWithButton(imgPath: 'assets/images/logos_apple-pay.svg'),
                         const SizedBox(
                           height: 45,
                         ),
