@@ -1,12 +1,36 @@
+import 'dart:developer';
+
 import 'package:cinejoy/textFormatter/textFormatter.dart';
 import 'package:cinejoy/theme/textStyle.dart';
 import 'package:cinejoy/widgets/credit_card.dart';
 import 'package:cinejoy/widgets/payWithButton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:uuid/uuid.dart';
+import 'package:intl/intl.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+final db = FirebaseFirestore.instance;
+var uuid = Uuid();
 
 class CreditCardPage extends StatefulWidget {
-  const CreditCardPage({super.key});
+  const CreditCardPage({
+    super.key,
+    required this.seats,
+    required this.pickedDate,
+    required this.pickedTime,
+    required this.choosenSeats,
+    required this.movie,
+  });
+
+  final String movie;
+  final seats;
+  final pickedDate;
+  final pickedTime;
+  final List choosenSeats;
 
   @override
   State<CreditCardPage> createState() {
@@ -15,6 +39,36 @@ class CreditCardPage extends StatefulWidget {
 }
 
 class _CreditCardPageState extends State<CreditCardPage> {
+  final userID = FirebaseAuth.instance.currentUser!.uid;
+
+  void updateDB() async {
+    print(userID);
+    var ticketsArray = await db.collection('users').doc(userID).get();
+    List ownedTickets = ticketsArray.data()!['tickets'];
+    print(inspect(ownedTickets));
+
+    for (var item in widget.choosenSeats) {
+      String ticketId = uuid.v4();
+      await db.collection('Tickets').doc(ticketId).set({
+        'movie': widget.movie,
+        'date': widget.pickedDate,
+        'time': widget.pickedTime,
+        'row': item['row'],
+        'seat': item['seat'],
+      });
+      db.collection('users').doc(userID).update({
+        'tickets': FieldValue.arrayUnion([ticketId])
+      });
+    }
+
+    await db
+        .collection('seatsStatus')
+        .doc('Hall 1')
+        .collection(DateFormat('yyyy-MM-dd').format(widget.pickedDate))
+        .doc(widget.pickedTime)
+        .set({'seats': widget.seats});
+  }
+
   late bool _showFrontSide;
 
   String _enteredCardNumber = '**** **** **** ****';
@@ -124,15 +178,12 @@ class _CreditCardPageState extends State<CreditCardPage> {
                       ),
                     ),
                   ),
-                  
                   Form(
                     key: _form,
                     child: Column(
                       //mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        
-
                         TextFormField(
                           inputFormatters: [
                             MaskedTextInputFormatter(
@@ -304,11 +355,13 @@ class _CreditCardPageState extends State<CreditCardPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        const PayWithButton(imgPath: 'assets/images/logos_google-pay.svg'),
+                        const PayWithButton(
+                            imgPath: 'assets/images/logos_google-pay.svg'),
                         const SizedBox(
                           height: 10,
                         ),
-                        const PayWithButton(imgPath: 'assets/images/logos_apple-pay.svg'),
+                        const PayWithButton(
+                            imgPath: 'assets/images/logos_apple-pay.svg'),
                         const SizedBox(
                           height: 45,
                         ),
@@ -346,11 +399,7 @@ class _CreditCardPageState extends State<CreditCardPage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  //  tickeCount>0 ? Navigator.of(context).push(
-                                  //         MaterialPageRoute(
-                                  //           builder: (ctx) => CreditCardPage(),
-                                  //         ),
-                                  //       ) : () {};
+                                  updateDB();
                                 },
                                 child: Text(
                                   'Buy Ticket',

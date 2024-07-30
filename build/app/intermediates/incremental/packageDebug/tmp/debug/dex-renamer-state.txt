@@ -1,4 +1,4 @@
-#Wed Jul 24 15:12:28 EEST 2024
+#Tue Jul 30 14:01:35 EEST 2024
 base.0=C\:\\Users\\peter\\Desktop\\code\\flutter\\flutter_apps\\cinejoy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 base.1=C\:\\Users\\peter\\Desktop\\code\\flutter\\flutter_apps\\cinejoy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 base.2=C\:\\Users\\peter\\Desktop\\code\\flutter\\flutter_apps\\cinejoy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex

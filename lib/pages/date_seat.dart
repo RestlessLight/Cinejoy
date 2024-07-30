@@ -1,11 +1,9 @@
+import 'dart:developer';
+
 import 'dart:convert';
 
 import 'package:cinejoy/pages/credit_card.dart';
 import 'package:flutter/material.dart';
-
-import 'dart:developer';
-//import 'package:flutter/cupertino.dart';
-//import 'package:flutter/widgets.dart';
 
 import 'package:intl/intl.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +11,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:cinejoy/widgets/day_button.dart';
 import 'package:cinejoy/data/hall_schedule.dart';
+import 'package:cinejoy/data/dummy_movies.dart';
 import 'package:cinejoy/theme/textStyle.dart';
 import 'package:cinejoy/widgets/cinema_screen.dart';
 import 'package:cinejoy/widgets/seat_button.dart';
@@ -21,10 +20,10 @@ import 'package:cinejoy/widgets/timeButton.dart';
 final db = FirebaseFirestore.instance;
 
 class DateSeatPage extends ConsumerStatefulWidget {
-  const DateSeatPage({super.key, required this.id});
+  const DateSeatPage({super.key, required this.id,});
 
   final String id;
-
+  
   @override
   ConsumerState<DateSeatPage> createState() {
     return _DateSeatPageState();
@@ -37,6 +36,7 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
   late List thisSchedule;
   var pickedDate;
   var pickedTime;
+  late String movieName;
 
   void updateTime() {
     for (int i = 0; i < thisSchedule.length; i++) {
@@ -81,7 +81,7 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
         print(jsonDecode(snap['seats']));
         pressedSeats = jsonDecode(snap['seats']);
         //List<List<String>> pressedSeats = jsonDecode(snap['seats']);
-        
+
         _isSeatsUpdating = false;
       });
     }
@@ -91,6 +91,10 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
   @override
   void initState() {
     thisSchedule = schedule.where((hall) => hall.movieId == widget.id).toList();
+    movieName =  movies.firstWhere((element) => element.id == widget.id).title;
+    print('Movie name - $movieName');
+    print(inspect(movieName));
+    print(inspect(thisSchedule));
 
     var start = DateTime.now();
     var end = thisSchedule[thisSchedule.length - 1].dateEnd;
@@ -122,7 +126,6 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
 
-    
     //print('Schedule data - ${inspect(thisSchedule)}');
 
     return SafeArea(
@@ -275,7 +278,7 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
                                               'seat': index2,
                                             });
                                             tickeCount++;
-                                            //print(choosenSeats);
+                                            print(inspect(choosenSeats));
                                           } else if (pressedSeats[index]
                                                   [index2] ==
                                               "taken") {
@@ -407,8 +410,8 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
                         ),
                         onPressed: () {
                           print(pickedTime);
-                          // var newSeats = jsonEncode(pressedSeats);
-                          // newSeats = newSeats.replaceAll("taken", "busy");
+                          var newSeats = jsonEncode(pressedSeats);
+                          newSeats = newSeats.replaceAll("taken", "busy");
 
                           // db
                           //     .collection('seatsStatus')
@@ -418,11 +421,19 @@ class _DateSeatPageState extends ConsumerState<DateSeatPage> {
                           //     .doc(pickedTime)
                           //     .set({'seats': newSeats });
 
-                         tickeCount>0 ? Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (ctx) => CreditCardPage(),
-                                ),
-                              ) : () {};
+                          tickeCount > 0
+                              ? Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (ctx) => CreditCardPage(
+                                      seats: newSeats,
+                                      pickedDate: pickedDate,
+                                      pickedTime: pickedTime,
+                                      choosenSeats: choosenSeats,
+                                      movie: movieName,
+                                    ),
+                                  ),
+                                )
+                              : () {};
                         },
                         child: Text(
                           'Buy Ticket',

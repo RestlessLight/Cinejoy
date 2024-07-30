@@ -25,6 +25,7 @@ final textTheme = {
     fontWeight: FontWeight.w700,
     fontSize: 16,
     color: Color(0xFFFFFFFF),
+    
   ),
   '20': const TextStyle(
     fontSize: 20,

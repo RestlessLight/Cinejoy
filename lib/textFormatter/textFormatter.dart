@@ -5,7 +5,7 @@ class MaskedTextInputFormatter extends TextInputFormatter {
   MaskedTextInputFormatter({
     required this.mask,
     required this.separator,
-  }) { assert(mask != null); assert (separator != null); }
+  }); 
   
   final String mask;
   final String separator;
